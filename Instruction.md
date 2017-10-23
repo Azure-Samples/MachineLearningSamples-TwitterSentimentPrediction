@@ -61,7 +61,7 @@ We are using a variant of SSWE in this tutorial. SSWE uses both the original ngr
 SSWE inspired neural network model that we use in this tutorial is shown in the following figure
 <table class="image" align="center">
 <caption align="bottom">Convolutional model to generate sentiment specific word embedding</caption>
-<tr><td><img src="./Images/embedding_model2.png" alt="Skip-gram model"/></td></tr>
+<tr><td><img src="./media/embedding_model2.png" alt="Skip-gram model"/></td></tr>
 </table>
 
 
@@ -82,7 +82,7 @@ AUC over test data for each of these experiments is as shown in the following fi
 
 <table class="image" align="center">
 <caption align="bottom">Results</caption>
-<tr><td><img src="./Images/results.png" alt="Results"/></td></tr>
+<tr><td><img src="./media/results.png" alt="Results"/></td></tr>
 </table>
 
 
