@@ -1,22 +1,35 @@
 
-# Using word embedding to predict text sentiment
+# Using word embedding to predict Twitter Text Sentiment
 
 
 ## Background
 
-Sentiment analysis is a widely research topic in the Natural Language Processing domain. It has the applications in consumer reviews mining, public opinion mining and advertisement on online forums. Many of the sentiment analysis approaches use handcrafted features but the popularity of unsupervised and semi supervised approached to generate word embeddings have made these embedding techniques an important way to generate features. In this tutorial/ series of notebooks we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546) and **Sentiment Specfic Word Embedding (SSWE) Algorithm** [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) for the purpose of sentiment polarity prediction.
+Sentiment analysis is a widely research topic in the Natural Language Processing domain. It has the applications in consumer reviews mining, public opinion mining and advertisement on online forums. Many of the sentiment analysis approaches use handcrafted features but the popularity of unsupervised and semi supervised approached to generate word embeddings have made these embedding techniques an important way to generate features. In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546) and **Sentiment Specfic Word Embedding (SSWE) Algorithm** [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) for the purpose of sentiment polarity prediction using [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-what-is-azure-ml).
+
+
+
+
+
 
 ## Content
 This tutorial consists of the following three main parts with each part consisting of one or more Jupyter notebooks.
 
-1. [Data Preparation](./Code/01_DataPreparation) 
-1. [Modeling](./Code/02_Modeling/) 
+1. [Pre-requisite]
+2. [Data Preparation](./Code/01_DataPreparation) 
+3. [Modeling](./Code/02_Modeling/) 
     1. [Feature Engineering](./Code/02_Modeling/01_FeatureEngineering/)
-    1. [Model Creation](./Code/02_Modeling/02_ModelCreation)
-    1. [Model Evaluation](./Code/02_Modeling/03_ModelEvaluation) 
-1. [Deployment](./Code/02_Modeling/03_Deployment) 
+    2. [Model Creation](./Code/02_Modeling/02_ModelCreation)
+    3. [Model Evaluation](./Code/02_Modeling/03_ModelEvaluation) 
+4. [Deployment](./Code/02_Modeling/03_Deployment) 
 
 A brief description of each of these steps is as follows
+
+### Pre-requisite
+Before diving into the project, some pre-requisites have to be met
+
+- Set up Azure Subscription and Account
+- Install Azure ML Work Bench
+- Install some required packages
 
 ### Data Preparation
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets.

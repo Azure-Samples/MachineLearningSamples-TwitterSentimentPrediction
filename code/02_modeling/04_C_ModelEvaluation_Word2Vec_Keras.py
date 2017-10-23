@@ -1,14 +1,13 @@
-# The purpose of this notebook is to train a **Gradient Boosting** based model to classify the tweets' sentiment as positive or negative. 
+# The purpose of this notebook is to apply the **Logistic Regression** model trained using the notebook ([Code/02_Modeling/02_ModelCreation/03_ModelCreation_Word2Vec_Keras.ipynb](http://aka.ms)) on testing data and show the performance of the model for sentiment polarity prediction.
+
 import numpy as np
 import pandas as pd
+import os
+import io
 
 random_seed=1
 np.random.seed(random_seed)
 
-import keras
-from sklearn import  metrics
-from timeit import default_timer as timer
-from keras.callbacks import ModelCheckpoint
 import tensorflow as tf
 import keras
 from keras import backend as K
@@ -16,44 +15,32 @@ from keras.models import Model
 from keras.layers import Input, merge
 from keras.layers.core import Lambda
 from keras import optimizers
-from keras.models import Sequential 
-from keras.layers import Dense, Activation 
 from keras import regularizers
 from keras.models import load_model
-import pandas as pd
-import os, io
+from keras.callbacks import ModelCheckpoint
+from keras.utils.np_utils import to_categorical
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from keras.utils.np_utils import to_categorical
 from keras.models import Sequential
-from keras.layers import Input, Dense, Flatten, Embedding, Merge, Dropout 
-from keras import backend as K
-import unicodedata 
+from keras.layers import Input, Dense, Flatten, Embedding , Activation
 from nltk.tokenize import TweetTokenizer
 import re
-from sklearn import ensemble
-from sklearn.model_selection import KFold
-from sklearn.model_selection import train_test_split
+import num2words
+from timeit import default_timer as timer
+from sklearn import  metrics
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.model_selection import KFold
 from sklearn.externals import joblib
-import num2words
+import matplotlib.pyplot as plt
 
-# Path of the training file'
-data_dir = r'C:\Users\ds1\Documents\AzureML\data'
+# Path of the test data directory'
+data_dir = r'C:\Users\ds1\Documents\AzureML\data' 
+vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_Word2Vec_Basic.tsv'
+model_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\model\evaluation_word2vec_logistic'
 
-# Path of the word vectors
-vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_SSWE_Basic_Keras_w_CNTK.tsv' 
-
-model_identifier='evaluation_SSWE_gbm'
-models_dir='model'
-if not os.path.exists(models_dir):
-    os.makedirs(models_dir)
-
-vector_size=50
-
-# Read and preprocess the data
-
+# Data preprocessing
 pos_emoticons=["(^.^)","(^-^)","(^_^)","(^_~)","(^3^)","(^o^)","(~_^)","*)",":)",":*",":-*",":]",":^)",":}",
                ":>",":3",":b",":-b",":c)",":D",":-D",":O",":-O",":o)",":p",":-p",":P",":-P",":Þ",":-Þ",":X",
                ":-X",";)",";-)",";]",";D","^)","^.~","_)m"," ~.^","<=8","<3","<333","=)","=///=","=]","=^_^=",
@@ -92,8 +79,8 @@ for i,each in enumerate(neg_emoticons):
 rep = dict((re.escape(k), v) for k, v in emoticonsDict.items())
 emoticonsPattern = re.compile("|".join(rep.keys()))
 
-def read_data(filename):
-    """Read the raw tweet data from a file. Replace Emails etc with special tokens"""   
+def read_data(filename):   
+    """Read the raw tweet data from a file. Replace Emails etc with special tokens"""
     with open(filename, 'r') as f:
     
         all_lines=f.readlines()
@@ -117,7 +104,7 @@ def read_labels(filename):
     arr[arr==4]=1 # Encode the positive category as 1
     return arr
 
-# Convert Word Embedding to Sentence Embedding
+# Convert Word Vectors to Sentence Vectors
 
 def load_word_embedding(vectors_file):
     """ Load the word vectors"""
@@ -144,59 +131,45 @@ def get_sentence_embedding(text_data, vectors_dc):
         sentence_vectors.append(min_max_mean)
     return sentence_vectors
 
-# Model Training
+print ('Step1: Loading Testing data')
+test_texts=read_data(data_dir+'/testing_text.csv')
+test_labels=read_labels(data_dir+'/testing_label.csv')
 
-def heldout_score(clf, X_test, y_test,n_estimators =20):
-    """compute deviance scores on ``X_test`` and ``y_test``. """
-    score = np.zeros((n_estimators,), dtype=np.float64)
-    for i, y_pred in enumerate(clf.staged_decision_function(X_test)):
-        score[i] = clf.loss_(y_test, y_pred)
-    return score
-
-def cv_estimate(n_splits,X_train, y_train,n_estimators =20):
-    best_score, best_model= None,None
-    cv = KFold(n_splits=n_splits)
-    cv_clf = ensemble.GradientBoostingClassifier(n_estimators=n_estimators,min_samples_leaf=3, verbose=1, loss='deviance')
-    val_scores = np.zeros((n_estimators,), dtype=np.float64)
-    i=0
-    for train, test in cv.split(X_train, y_train):
-        cv_clf.fit(X_train[train], y_train[train])
-        current_score= heldout_score(cv_clf, X_train[test], y_train[test],n_estimators)
-        val_scores += current_score
-        print ('Fold {} Score {}'.format(i+1, np.mean(current_score)))
-        if i==0:
-            best_score=np.mean(current_score)
-            best_model=cv_clf
-        else:
-            
-            if np.mean(current_score)<best_score:
-                best_score=np.mean(current_score)
-                best_model=cv_clf
-        i+=1
-    val_scores /= n_splits
-    return val_scores, best_model
-
-print ('Step1: Loading Training data')
-train_texts=read_data(data_dir+'\\training_text.csv')
-train_labels=read_labels(data_dir+'\\training_label.csv')
-
-print ('Step 2 : Load word vectors')
+print ('Step2: Loading word embedding')
 vectors_dc=load_word_embedding(vectors_file)
 len(vectors_dc)
 
-print ('Step 3: Convert Word vectors to sentence vectors')
-train_sentence_vectors=get_sentence_embedding(train_texts,vectors_dc)
-print (len(train_sentence_vectors), len(train_labels), len(train_texts))
+print ('Step 3: Converting word vectors to sentence vectors')
+test_sentence_vectors=get_sentence_embedding(test_texts, vectors_dc)
+print (len(test_sentence_vectors), len(test_labels), len(test_texts))
+test_x=np.array(test_sentence_vectors).astype('float32')
+test_y=np.array(test_labels)
 
-print (" Encoding the input")
-train_x=train_sentence_vectors
-train_y=train_labels
-train_x=np.array(train_x).astype('float32')
-train_y=np.array(train_y)
+print ('Step4: Loading and applying model')
+model = load_model(model_file)
+predictions = model.predict(test_x)
+y_pred = np.argmax(predictions, axis=1)
+y_pred_pos = predictions[:,1]
 
-print ('Step 4: Gradient Boosting Model using sklearn')
-n_splits=3
-cv_score,best_model = cv_estimate(n_splits,train_x, train_y,20)
+print ('Step 5: Getting the results')
+print ('\t Accuracy : %.4f' % metrics.accuracy_score(test_y, y_pred))
+print ('\t Macro-Average Precision : %.4f' % ((metrics.precision_score(test_y, y_pred, pos_label=0) + 
+                                              metrics.precision_score(test_y, y_pred, pos_label=1))/2))
+print ('\t Macro-Average Recall : %.4f' % ((metrics.recall_score(test_y, y_pred, pos_label=0) + 
+                                           metrics.recall_score(test_y, y_pred, pos_label=1))/2))
+print ('\t Macro-Average F1 : %.4f' % ((metrics.f1_score(test_y, y_pred, pos_label=0) 
+                                       + metrics.f1_score(test_y, y_pred, pos_label=1))/2)
+)
 
-print ('Step 5: Save the model')
-joblib.dump(best_model, models_dir+'\\'+model_identifier)
+fpr,tpr,thresh=metrics.roc_curve(test_y, y_pred_pos)
+roc_auc=metrics.auc(fpr,tpr,'macro')
+print ('fpr {}, tpr {}, auc {}'.format(fpr, tpr, roc_auc))
+plt.title('Receiver Operating Characteristic')
+plt.plot(fpr, tpr, 'b', label = 'AUC = %0.2f' % roc_auc)
+plt.legend(loc = 'lower right')
+plt.plot([0, 1], [0, 1],'r--')
+plt.xlim([0, 1])
+plt.ylim([0, 1])
+plt.ylabel('True Positive Rate')
+plt.xlabel('False Positive Rate')
+plt.show()

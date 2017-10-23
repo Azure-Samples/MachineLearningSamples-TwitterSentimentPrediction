@@ -35,6 +35,7 @@ from sklearn.model_selection import KFold
 from sklearn.externals import joblib
 import matplotlib.pyplot as plt
 
+# Path of the test data directory'
 data_dir = r'C:\Users\ds1\Documents\AzureML\data' 
 vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_Word2Vec_Basic.tsv'
 model_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\model\evaluation_word2vec_gbm'
