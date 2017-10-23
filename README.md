@@ -1,4 +1,4 @@
-# Using word embedding to predict Twitter Text Sentiment
+# Use word embedding to predict Twitter Text Sentiment
 
 
 ## Link to the Microsoft DOCS site
@@ -22,20 +22,20 @@ Sentiment analysis is a widely research topic in the Natural Language Processing
 
 The aim of this tutorial is to highlight how to use Azure Machine Learning Workbench to predict the sentiment of Twitter text data. Here are the key points addressed:
 
-1. How to train a Word2Vec embeddings model
-2. How to train a SSWE embeddings model
-2. How to use Word2Vec and SSWE embeddings in GBM model and Logistic Model in Keras using CNTK/TensorFlow backend on a GPU-enabled Azure Data Science Virtual Machine (GPU DSVM).
-2. Demonstrate that GBM model using SSWE embeddings achieves the best model in terms of AUC
-3. Demonstrate how to train and operationalize a machine learning model using Azure Machine Learning Workbench.
+* How to train a Word2Vec embeddings model
+* How to train a SSWE embeddings model
+* How to use Word2Vec and SSWE embeddings in GBM model and Logistic Model in Keras using CNTK/TensorFlow backend on a GPU-enabled Azure Data Science Virtual Machine (GPU DSVM).
+* Demonstrate that GBM model using SSWE embeddings achieves the best model in terms of AUC
+* Demonstrate how to train and operationalize a machine learning model using Azure Machine Learning Workbench.
 
 The following capabilities within Azure Machine Learning Workbench are covered in this tutorial:
 
-   * Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md).
-   * Automated management of your project dependencies including the download and the installation. 
-   * Execution of Python scripts.
-   * Run history tracking for Python files.
-   * Execution of jobs in Azure GPU VMs.
-   * Easy operationalization of learning models as web-services hosted on Azure Container Services.
+* Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md).
+* Automated management of your project dependencies including the download and the installation. 
+* Execution of Python scripts.
+* Run history tracking for Python files.
+* Execution of jobs in Azure GPU VMs.
+* Easy operationalization of learning models as web-services hosted on Azure Container Services.
 
 The detailed documentation for this scenario including the step-by-step walk-through: https://review.docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-twitter-sentiment.
 
