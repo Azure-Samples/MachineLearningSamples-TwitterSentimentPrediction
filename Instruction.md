@@ -1,5 +1,5 @@
 
-# Using word embedding to predict Twitter Text Sentiment
+# Use word embedding to predict Twitter Text Sentiment
 
 
 ## Background
