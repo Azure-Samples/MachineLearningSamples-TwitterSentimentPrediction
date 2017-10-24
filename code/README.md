@@ -49,9 +49,28 @@ After the training process is done, two embedding files in the format of TSV are
 
 #### Model Creation
 
+We apply the two types of features: Word2Vec and SSWE into two models: GBM model and Logistic regression model. Therefore we have four models to compare.
+
+* Word2Vec in GBM model
 ![Word2Vec_GBM](../docs/media/08_ModelCreation_Word2Vec_GBM_training.PNG)
 
-![Word2Vec_GBM](../docs/media/09_ModelCreation_SSWE_Keras_training.PNG)
+* Word2Vec in Logistic model
+![Word2Vec_logit](../docs/media/08_B_ModelCreation_Word2Vec_Keras_training.PNG)
+![Word2Vec_logit](../docs/media/08_C_ModelCreation_Word2Vec_Keras_training_done.PNG)
+
+* SSWE in GBM model
+![SSWE_GBM](../docs/media/10_B_ModelCreation_SSWE_GBM_training.PNG)
+![SSWE_GBM](../docs/media/10_B_ModelCreation_SSWE_GBM_training_done.PNG)
+
+* SSWE in Logistic model
+![SSWE_logit](../docs/media/09_ModelCreation_SSWE_Keras_training.PNG)
+![SSWE_logit](../docs/media/10_ModelCreation_SSWE_Keras_training_done.PNG)
+
+
+#### Model Evaluation
+We use the trained 4 models in tetsting data to get compare the model's performance, GBM model with SSWE features is the best one in terms of AUC value.
+
+![Compare_model](../docs/media/12_C_ModelEvaluation_Combined.PNG)
 
 
 ### Deployment
