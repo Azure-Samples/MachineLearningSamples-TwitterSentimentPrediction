@@ -86,3 +86,31 @@ This part we will deploy pre-trained sentiment prediction model to a web service
 * Execute [schma_gen.py](../code/03_deployment/schema_gen.py) to create the schema required for web service, you will get a json file like this:
 
 ![schema_gen](../docs/media/15_schema_gen_SSWE_content.PNG)
+
+* Log in Azure account
+
+![az_login](../docs/media/17_az_login.PNG)
+
+* Set up Web service cluster
+![env_setup](../docs/media/18_az_ml_env_setup.PNG)
+
+* Set up Azure ML model management account
+![model_management_setup](../docs/media/19_az_ml_account_modelmanagement_setup.PNG)
+
+* Check cluster creation status
+![cluster_status](../docs/media/21_env_cluster_created.PNG)
+
+* Set deployment cluster
+![set_env](../docs/media/22_az_ml_env_set_cluster.PNG)
+
+* You can check Kubernetes dashboard in the local host from your browser
+![kubenetes_dashboard](../docs/media/25_kubernetes_dashboard.PNG)
+
+* Create realtime web service
+![create_realtime_webservice](../docs/media/23_create_realtime_webservice.PNG)
+
+* Chck realtime service usage
+![realtime_service_usage](../docs/media/24_check_realtime_webservice.PNG) 
+
+* Call web service to make prediction
+![make_prediction](../docs/media/26_call_realtime_service.PNG)
