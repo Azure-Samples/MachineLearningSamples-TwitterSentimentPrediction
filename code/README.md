@@ -1,8 +1,6 @@
 # Use word embedding to predict Twitter sentiment
 
-
 ## Introduction
-
 In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench.
 
 For more information about Word2Vec and SSWE, you can refer to those papers: [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546) and **Sentiment Specfic Word Embedding (SSWE) Algorithm** [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) 
@@ -18,7 +16,6 @@ This tutorial consists of the following three main parts with each part consisti
 3. [Deployment](http://aka.ms/) 
 
 ## Step-by-Step walkthrough
-
 ### Data Preparation
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located.
 
@@ -74,4 +71,18 @@ We use the trained 4 models in tetsting data to get compare the model's performa
 
 
 ### Deployment
-This part of the tutorial demonstrates how to use Azure container services to deploy pre-trained sentiment prediction models.
+This part we will deploy pre-trained sentiment prediction model to a web service using Azure ML CLI. Several files are needed before deploying your model. Please move all those files under the project root directoty of Azure ML Work Bench.
+
+* Pickled word embedding file
+* Pre-trained model
+* Scoring script
+* Dependency yaml
+* Model input in Json format
+
+* Pickle word embedding by running [pickle_embedding.py](../code/03_deployment/pickle_embedding.py), the resulting pickled word embedding files start with **pickle_**.
+
+![pickled_file](../docs/media/13_Pickle_Two_Embedding_TSV.PNG)
+
+* Execute [schma_gen.py](../code/03_deployment/schema_gen.py) to create the schema required for web service, you will get a json file like this:
+
+![schema_gen](../docs/media/15_schema_gen_SSWE_content.PNG)
