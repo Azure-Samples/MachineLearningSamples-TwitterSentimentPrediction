@@ -10,9 +10,9 @@ This tutorial consists of the following three main parts with each part consisti
 
 1. [Data Preparation](http://aka.ms/) 
 2. [Modeling](https://aka.ms/) 
-    1. Feature Engineering
-    2. Model Creation
-    3. Model Evaluation 
+    * Feature Engineering
+    * Model Creation
+    * Model Evaluation 
 3. [Deployment](http://aka.ms/) 
 
 ## Step-by-Step walkthrough
@@ -131,38 +131,65 @@ This part we will deploy pre-trained sentiment prediction model to a web service
 * Dependency yaml
 * Model input in Json format
 
-* Pickle word embedding by running [pickle_embedding.py](../code/03_deployment/pickle_embedding.py), the resulting pickled word embedding files start with **pickle_**.
+1. Pickle word embedding by running [pickle_embedding.py](../code/03_deployment/pickle_embedding.py), the resulting pickled word embedding files start with **pickle_**.
 
-![pickled_file](../docs/media/13_Pickle_Two_Embedding_TSV.PNG)
+    ![pickled_file](../docs/media/13_Pickle_Two_Embedding_TSV.PNG)
 
-* Execute [schma_gen.py](../code/03_deployment/schema_gen.py) to create the schema required for web service, you will get a json file like this:
+2. Execute [schma_gen.py](../code/03_deployment/schema_gen.py) to create the schema required for web service, you will get a json file like this:
 
-![schema_gen](../docs/media/15_schema_gen_SSWE_content.PNG)
+    ![schema_gen](../docs/media/15_schema_gen_SSWE_content.PNG)
 
-* Log in Azure account
+3. Log in Azure account by running **az login** in Azure Machine Learning Work Bench Command Line.Follows the instructions on screen to login to your Azure account.
 
-![az_login](../docs/media/17_az_login.PNG)
+    ![open_cli](../docs/media/open_AML_CLI.PNG)
 
-* Set up Web service cluster
-![env_setup](../docs/media/18_az_ml_env_setup.PNG)
+    ![az_login](../docs/media/17_az_login.PNG)
 
-* Set up Azure ML model management account
-![model_management_setup](../docs/media/19_az_ml_account_modelmanagement_setup.PNG)
+4. Set up Web service cluster using the following commands:
+            
+        az ml env setup -c -n <yourclustername> --location <e.g. eastus2>
 
-* Check cluster creation status
-![cluster_status](../docs/media/21_env_cluster_created.PNG)
+    ![env_setup](../docs/media/18_az_ml_env_setup.PNG)
 
-* Set deployment cluster
-![set_env](../docs/media/22_az_ml_env_set_cluster.PNG)
+5. Set up Azure ML model management account(one time setup)
 
-* You can check Kubernetes dashboard in the local host from your browser
-![kubenetes_dashboard](../docs/media/25_kubernetes_dashboard.PNG)
+    az ml account modelmanagement create --location (e.g. eastus2) -n (your-new-acctname) -g (yourresourcegroupname) --sku-instances 1 --sku-name S1
 
-* Create realtime web service
-![create_realtime_webservice](../docs/media/23_create_realtime_webservice.PNG)
+    ![model_management_setup](../docs/media/19_az_ml_account_modelmanagement_setup.PNG)
 
-* Chck realtime service usage
-![realtime_service_usage](../docs/media/24_check_realtime_webservice.PNG) 
+6. Check cluster creation status using the this command, the creation may take several minutes to finish.
 
-* Call web service to make prediction
-![make_prediction](../docs/media/26_call_realtime_service.PNG)
+    az ml env show -g (yourresourcegroupname) -n (your-new-acctname)
+
+    ![cluster_status](../docs/media/21_env_cluster_created.PNG)
+
+7. Set deployment cluster
+
+    az ml env set -n (yourclustername) -g (yourresourcegroupname) 
+
+    ![set_env](../docs/media/22_az_ml_env_set_cluster.PNG)
+
+8. You can check Kubernetes dashboard in the local host from your browser
+
+    ![kubenetes_dashboard](../docs/media/25_kubernetes_dashboard.PNG)
+
+9. Create realtime web service
+
+    az ml service create realtime --model-file (model file name) -f (scoring script name) -n (your-new-acctname) -s (web service schema json file) -r (compute environment, python or PySpark, etc) -d (dependency files)
+
+    ![create_realtime_webservice](../docs/media/23_create_realtime_webservice.PNG)
+
+10. Check the status and usage of your realtime service
+
+    az ml service show realtime -i <yourserviceid>
+
+    ![realtime_service_usage](../docs/media/24_check_realtime_webservice.PNG) 
+
+11.  Now you are ready to make prediction calls to web service 
+
+    az ml service run realtime -i <yourserviceid> -d (web service input schema)
+
+    ![make_prediction](../docs/media/26_call_realtime_service.PNG)
+
+
+Congratulations! You have successfully deployed your model to a real time web service!

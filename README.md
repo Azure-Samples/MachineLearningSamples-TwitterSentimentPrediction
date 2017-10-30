@@ -24,7 +24,8 @@ The aim of this tutorial is to highlight how to use Azure Machine Learning Workb
 
 * How to train a Word2Vec embeddings model
 * How to train a SSWE embeddings model
-* How to use Word2Vec and SSWE embeddings in GBM model and Logistic Model in Keras using CNTK/TensorFlow backend on a GPU-enabled Azure Data Science Virtual Machine (GPU DSVM).
+* How to use Word2Vec and SSWE embeddings in GBM model and Logistic Model
+* How to use Keras with CNTK/TensorFlow backend on a GPU-enabled Azure Data Science Virtual Machine (GPU DSVM).
 * Demonstrate that GBM model using SSWE embeddings achieves the best model in terms of AUC
 * Demonstrate how to train and operationalize a machine learning model using Azure Machine Learning Workbench.
 
