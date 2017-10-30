@@ -185,7 +185,7 @@ This part we will deploy pre-trained sentiment prediction model to a web service
 
     ![realtime_service_usage](../docs/media/24_check_realtime_webservice.PNG) 
 
-11.  Now you are ready to make prediction calls to web service 
+11. Now you are ready to make prediction calls to web service 
 
     az ml service run realtime -i <yourserviceid> -d (web service input schema)
 
