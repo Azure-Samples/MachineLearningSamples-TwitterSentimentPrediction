@@ -229,7 +229,7 @@ Congratulations! You have successfully deployed your model to a real time web se
 We went through the details on how to train a word embedding model using Word2Vec and SSWE algorithms and then use the extracted embeddings as features to train several models to predict the sentiment score of Twitter text data. Sentiment Specific Wording Embeddings(SSWE) feature with Gradient Boosted Tree model gives the best performance. In the end this model is deployed as a real time web service in Azure Container Services with the help of Azure Machine Learning Work Bench.
 
 ## References
-* [What is Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
 * [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
 * [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
 * [Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
