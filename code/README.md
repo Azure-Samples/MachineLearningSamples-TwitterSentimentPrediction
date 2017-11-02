@@ -7,13 +7,22 @@ For more information about Word2Vec and SSWE, you can refer to those papers: [Mi
 
 ## Content
 This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
-
-1. [Data Preparation](http://aka.ms/) 
-2. [Modeling](https://aka.ms/) 
+D:\AML_Projects\Twitter_Sentiment_NLP_Publish\MachineLearningSamples-TwitterSentimentPrediction\code\01_data_acquisition_and_understanding
+1. Data Acquisition and understanding
+2. Modeling
     * Feature Engineering
     * Model Creation
     * Model Evaluation 
-3. [Deployment](http://aka.ms/) 
+3. Deployment
+
+
+## Team Data Science Process
+
+We use the TDSP project structure and documentation templates to execute this tutorial. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+
+![tdsp-lifecycle](../docs/media/tdsp-lifecycle.PNG)
+
+![instantiate-tdsp](../docs/media/tdsp-instantiation.PNG) 
 
 ## Step-by-Step walkthrough
 
@@ -23,6 +32,11 @@ Before diving into the project, some pre-requisites have to be met
 - Set up Azure Subscription and Account
 - Install Azure ML Work Bench
 - Install some required packages
+    * [Tensorflow](https://www.tensorflow.org/install/)
+    * [nltk](http://www.nltk.org/install.html)
+    * [num2words](https://pypi.python.org/pypi/num2words)
+    * [Keras](https://keras.io/#installation)
+
 
 You can follow the steps below to finish this tutorial. There are two ways to run the script: you can run each step in Jupyter NOtebook within Azure Machine Learning Work Bench, or you can run the .py file directly in Azure Machine Learning Command Line (CLI).
 
