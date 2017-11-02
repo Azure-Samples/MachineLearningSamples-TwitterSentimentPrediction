@@ -5,16 +5,6 @@
 ## Introduction
 In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench. We will follow [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) to execute this project.
 
-## Content
-This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
-1. Data Acquisition and understanding
-2. Modeling
-    * Feature Engineering
-    * Model Creation
-    * Model Evaluation 
-3. Deployment
-
-
 ## Team Data Science Process
 
 We use the TDSP project structure and documentation templates to execute this tutorial. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
@@ -22,6 +12,15 @@ We use the TDSP project structure and documentation templates to execute this tu
 ![tdsp-lifecycle](../docs/media/tdsp-lifecycle.PNG)
 
 ![instantiate-tdsp](../docs/media/tdsp-instantiation.PNG) 
+
+## Content
+This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
+1. [Data Acquisition and understanding](#data-acquisition-and-understanding)
+2. [Modeling](#modeling)
+    * [Feature Engineering](#feature-engineering)
+    * [Model Creation](#model-creation)
+    * [Model Evaluation](#model-evaluation) 
+3. [Deployment](#deployment)
 
 ## Step-by-Step walkthrough
 
@@ -35,7 +34,6 @@ Before diving into the project, some pre-requisites have to be met
     * [nltk](http://www.nltk.org/install.html)
     * [num2words](https://pypi.python.org/pypi/num2words)
     * [Keras](https://keras.io/#installation)
-
 
 You can follow the steps below to finish this tutorial. There are two ways to run the script: you can run each step in Jupyter NOtebook within Azure Machine Learning Work Bench, or you can run the .py file directly in Azure Machine Learning Command Line (CLI).
 
@@ -51,7 +49,7 @@ You can follow the steps below to finish this tutorial. There are two ways to ru
 
 The screenshots below demonstrate running the tutorial in CLI, running it in Jupyter Notebook is similar.
 
-### Data Preparation
+### Data Acquisition and understanding
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
 
 Sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, neutral =2, positive=4) as well. Sentiment140 dataset has been labelled using the concept of distant supervision as explained in the paper **[Twitter Sentiment Classification Using Distant Supervision](http://cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf)**
