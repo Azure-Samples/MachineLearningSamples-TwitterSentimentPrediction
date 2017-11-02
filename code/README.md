@@ -115,7 +115,7 @@ When the code is running, if you run **nvidia-smi** in Azure ML CLI, you can see
 
 Then we train SSWE embedding model. 
 
-![SSWE_training](../docs/media/06_SSWE_using_GPU.PNG)
+![SSWE_training](../docs/media/06_SSWE_Using_GPU.PNG)
 
 After the training process is done, two embedding files in the format of TSV are generated in the vectors folder under 02_modeling.
 
