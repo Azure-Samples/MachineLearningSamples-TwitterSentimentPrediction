@@ -1,4 +1,4 @@
-# Use word embedding to predict Twitter Text Sentiment
+# Use word embeddings to predict Twitter sentiment following Team Data Science Process
 
 
 ## Link to the Microsoft DOCS site

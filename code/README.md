@@ -1,4 +1,6 @@
-# Use word embedding to predict Twitter sentiment
+# Use word embeddings to predict Twitter sentiment following Team Data Science Process
+
+![Twitter-sentiment-logo](../docs/media/twitter-sentiment-icon.PNG)
 
 ## Introduction
 In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench.
