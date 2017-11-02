@@ -24,6 +24,20 @@ Before diving into the project, some pre-requisites have to be met
 - Install Azure ML Work Bench
 - Install some required packages
 
+You can follow the steps below to finish this tutorial. There are two ways to run the script: you can run each step in Jupyter NOtebook within Azure Machine Learning Work Bench, or you can run the .py file directly in Azure Machine Learning Command Line (CLI).
+
+* To run the Jupyter Notebook in Azure ML Work Bench Work Bench, open the notebook and click Start Notebook Server.
+
+    ![start-notebook-server](../docs/media/start-notebook-server.PNG)
+
+* To run the .py script in CLI, open the Command line window from **File** in the upper left corner of Azure ML Work Bench Work Bench window, and then in the command line use **python path-to-python code** to execute the code.
+
+    ![open-cli](../docs/media/open-cli.PNG)
+
+    ![execute-cli](../docs/media/execute-py-cli.PNG)
+
+The screenshots below demonstrate running the tutorial in CLI, running it in Jupyter Notebook is similar.
+
 ### Data Preparation
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
 
