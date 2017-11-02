@@ -15,7 +15,7 @@ We use the TDSP project structure and documentation templates to execute this tu
 
 ## Content
 This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
-1. [Data Acquisition and understanding](#data-acquisition-and-understanding)
+1. [Data acquisition and understanding](#data-acquisition-and-understanding)
 2. [Modeling](#modeling)
     * [Feature Engineering](#feature-engineering)
     * [Model Creation](#model-creation)
@@ -28,7 +28,7 @@ This tutorial consists of the following three main parts with each part consisti
 Before diving into the project, some pre-requisites have to be met
 
 - Set up Azure Subscription and Account
-- Install Azure ML Work Bench
+- [Install Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
 - Install some required packages
     * [Tensorflow](https://www.tensorflow.org/install/)
     * [nltk](http://www.nltk.org/install.html)
@@ -49,7 +49,7 @@ You can follow the steps below to finish this tutorial. There are two ways to ru
 
 The screenshots below demonstrate running the tutorial in CLI, running it in Jupyter Notebook is similar.
 
-### Data Acquisition and understanding
+### Data acquisition and understanding
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
 
 Sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, neutral =2, positive=4) as well. Sentiment140 dataset has been labelled using the concept of distant supervision as explained in the paper **[Twitter Sentiment Classification Using Distant Supervision](http://cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf)**
@@ -224,3 +224,16 @@ This part we will deploy pre-trained sentiment prediction model to a web service
 
 
 Congratulations! You have successfully deployed your model to a real time web service!
+
+## Conclusion
+We went through the details on how to train a word embedding model using Word2Vec and SSWE algorithms and then use the extracted embeddings as features to train several models to predict the sentiment score of Twitter text data. Sentiment Specific Wording Embeddings(SSWE) feature with Gradient Boosted Tree model gives the best performance. In the end this model is deployed as a real time web service in Azure Container Services with the help of Azure Machine Learning Work Bench.
+
+## References
+* [What is Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) 
+* [How to use Team Data Science Process (TDSP) in Azure Machine Learning](https://aka.ms/how-to-use-tdsp-in-aml)
+* [TDSP project template for Azure Machine Learning](https://aka.ms/tdspamlgithubrepo)
+* [Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+* [US Income data-set from UCI ML repository](https://archive.ics.uci.edu/ml/datasets/adult)
+* [Biomedical Entity Recognition using TDSP Template](https://docs.microsoft.com/en-us/azure/machine-learning/preview/scenario-tdsp-biomedical-recognition)
+* [Mikolov, Tomas, et al. Distributed representations of words and phrases and their compositionality. Advances in neural information processing systems. 2013.](https://arxiv.org/abs/1310.4546)
+* [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)
