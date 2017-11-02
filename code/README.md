@@ -9,7 +9,6 @@ For more information about Word2Vec and SSWE, you can refer to those papers: [Mi
 
 ## Content
 This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
-D:\AML_Projects\Twitter_Sentiment_NLP_Publish\MachineLearningSamples-TwitterSentimentPrediction\code\01_data_acquisition_and_understanding
 1. Data Acquisition and understanding
 2. Modeling
     * Feature Engineering
