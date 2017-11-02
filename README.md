@@ -12,6 +12,10 @@ The detailed documentation for this example includes the step-by-step walk-throu
 The public GitHub repository for this example contains all the code samples:
 [https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction)
 
+## Link to the end-to-end walkthrough in GitHub
+
+Ths public GitHub repository for this tutorial containing step by step instructions:
+[https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/code/README.md](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/code/README.md)
 
 ## Summary
 
