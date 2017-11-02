@@ -31,6 +31,7 @@ Before diving into the project, some pre-requisites have to be met
 - [Install Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
 - Install some required packages
     * [Tensorflow](https://www.tensorflow.org/install/)
+    * [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/setup-cntk-on-your-machine)
     * [nltk](http://www.nltk.org/install.html)
     * [num2words](https://pypi.python.org/pypi/num2words)
     * [Keras](https://keras.io/#installation)
