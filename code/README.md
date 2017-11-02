@@ -94,6 +94,10 @@ First we train Word2Vec model to get the embedding, as the training process proc
 ![Word2Vec](../docs/media/03_Word2Vec_training_1.PNG)
 ![Word2Vec](../docs/media/04_Word2Vec_training_2.PNG)
 
+When the code is running, if you run **nvidia-smi** in Azure ML CLI, you can see the CPU is being utilized in the background.
+
+![GPU-running](../docs/media/check_GPU_usage.PNG)
+
 Then we train SSWE embedding model. 
 
 ![SSWE_training](../docs/media/06_SSWE_using_GPU.PNG)
