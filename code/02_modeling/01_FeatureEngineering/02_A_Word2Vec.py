@@ -23,7 +23,7 @@ embedding_folder = 'vectors'
 if not os.path.exists(embedding_folder):
     os.makedirs(embedding_folder)
 
-batch_size = 128       #64may cause error, re-run or try 128
+batch_size = 128      # Batch size
 embedding_size = 50   # Dimension of the embedding vector.
 skip_window = 2       # How many words to consider left and right.
 num_skips = 2         # How many times to reuse an input to generate a label.
