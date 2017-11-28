@@ -4,11 +4,8 @@ from keras.models import load_model
 from DataPreparation import Data_Preparation
 from sklearn.externals import joblib
 
-#vectors_file='pickle_embeddings_Word2Vec_Basic.tsv'
-#trainedModelFile="evaluation_word2vec_gbm"
-
 vectors_file='pickle_embeddings_SSWE_Basic_Keras_w_CNTK.tsv'
-trainedModelFile="evaluation_SSWE_logistic"
+trainedModelFile="evaluation_SSWE_GBM"
 
 trainedModel = None
 mem_after_init = None

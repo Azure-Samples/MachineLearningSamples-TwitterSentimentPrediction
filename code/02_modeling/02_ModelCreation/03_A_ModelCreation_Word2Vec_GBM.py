@@ -34,6 +34,22 @@ from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.model_selection import KFold
 from sklearn.externals import joblib
 
+
+from azureml.logging import get_azureml_logger
+from azureml.dataprep.package import run
+# initialize the logger
+run_logger = get_azureml_logger() 
+
+# change num_estimators and you will likely get a different accuracy.
+num_estimators = 5
+# load num_estimators from argument if present
+if len(sys.argv) > 1:
+    num_estimators = int(sys.argv[1])
+    if num_estimators < 1:
+        num_estimators = 1
+run_logger.log("Num Estimators", num_estimators)
+
+
 # Path of the training file'
 data_dir = r'C:\Users\ds1\Documents\AzureML\data'  
 
@@ -195,6 +211,8 @@ valid_y=np.array(valid_y)
 print ('Step 4: Gradient Boosting Module using sklearn')
 n_splits=3
 cv_score,best_model = cv_estimate(n_splits,train_x, train_y,20)
+
+run_logger.log("Num Iters vs. CV Score", cv_score)
 
 print ('Step 5: Save the model')
 model_identifier = 'evaluation_word2vec_gbm'

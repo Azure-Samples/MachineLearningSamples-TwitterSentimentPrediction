@@ -173,10 +173,10 @@ We use the 4 trained in previous step in tetsting data to get evaluate the model
 
 
 ### Deployment
-This part we will deploy pre-trained sentiment prediction model to a web service using Azure ML CLI. Several files are needed before deploying your model. Please move all those files under the project root directoty of Azure ML Work Bench.
+This part we will deploy pre-trained sentiment prediction model (SSWE embedding + GBM model) to a web service using Azure ML CLI. Several files are needed before deploying your model. Please move all those files under the project root directoty of Azure ML Work Bench.
 
-* Pickled word embedding file
-* Pre-trained model
+* Pickled word embedding file (pickle_embeddings_SSWE_Basic_Keras_w_CNTK.tsv)
+* Pre-trained model (evaluation_SSWE_GBM)
 * Scoring script
 * Dependency yaml
 * Model input in Json format
@@ -194,6 +194,10 @@ This part we will deploy pre-trained sentiment prediction model to a web service
     ![open_cli](../deliverable_docs/images/open_AML_CLI.PNG)
 
     ![az_login](../deliverable_docs/images/17_az_login.PNG)
+
+    If you have multiple Azure Subscriptions, use the following command to choose one: 
+
+        az account set -s <your subscription name>
 
 4. Set up Web service cluster using the following commands:
             
