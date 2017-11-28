@@ -97,10 +97,10 @@ Skip-gram is a shallow neural network taking the target word encoded as a one ho
  
 <table class="image" align="center">
 <caption align="bottom">Skip-gram model</caption>
-<tr><td><img src="https://s3-ap-south-1.amazonaws.com/av-blog-deliverable_docs/images/wp-content/uploads/2017/06/05000515/Capture2-276x300.png" alt="Skip-gram model"/></td></tr>
+<tr><td><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05000515/Capture2-276x300.png" alt="Skip-gram model"/></td></tr>
 </table>
 
-The details of the word2vec algorithm and skip-gram model are beyond the scope of this tutorial and the interested readers are requested to go through the following links for more details.
+The details of the word2vec algorithm and skip-gram model are beyond the scope of this tutorial and the interested readers are requested to go through the following links for more details. The code 02_A_Word2Vec.py referenced [tensorflow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
 
 * [Vector Representation of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)

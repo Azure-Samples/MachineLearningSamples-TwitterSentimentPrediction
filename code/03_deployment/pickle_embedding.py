@@ -7,10 +7,10 @@ import numpy as np
 
 def load_word_embedding( vectors_file):
     vectors= np.genfromtxt(vectors_file, delimiter='\t', comments='#--#',dtype=None, 
-                           names=['Word']+['EV{}'.format(i) for i in range(1,51)])
+                           names=['Word']+['EV{}'.format(i) for i in range(1,51)])#51 is embedding length + 1, change accoridngly if the size of embedding is not 50
     vectors_dc={}
     for x in vectors:
-        vectors_dc[x['Word']]=[x[each] for each in ['EV{}'.format(i) for i in range(1,51)]]
+        vectors_dc[x['Word']]=[x[each] for each in ['EV{}'.format(i) for i in range(1,51)]]#51 is embedding length + 1, change accoridngly if the size of embedding is not 50
     return vectors_dc
 
 def picklify(raw_embedding_file, dest_dir='./'):

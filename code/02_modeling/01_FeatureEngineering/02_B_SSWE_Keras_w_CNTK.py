@@ -61,7 +61,7 @@ embedding_dim 		= 50 # Embedding layer size
 no_filters			= 15 # No of filters for the convolution layer
 filter_size			= 5  # Filter size for the convolution layer
 trainable 			= True # flag specifying whether the embedding layer weights should be changed during the training or not
-batch_size 			= 128 # batch size can be increased to have better gpu utilization
+batch_size 			= 64 # batch size can be increased to have better gpu utilization
 no_epochs 			= 5 # No of training epochs
 
 # Data preprocessing

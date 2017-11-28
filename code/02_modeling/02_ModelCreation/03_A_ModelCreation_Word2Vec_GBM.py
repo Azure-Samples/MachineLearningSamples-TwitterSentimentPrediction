@@ -119,11 +119,10 @@ def read_labels(filename):
 def load_word_embedding(vectors_file):
     """ Load the word vectors"""
     vectors= np.genfromtxt(vectors_file, delimiter='\t', comments='#--#',dtype=None,
-                           names=['Word']+['EV{}'.format(i) for i in range(1,51)])
-    # comments have to be changed as some of the tokens are having # in them and then we dont need comments
+                           names=['Word']+['EV{}'.format(i) for i in range(1,51)]) #51 is embedding length + 1, change accoridngly if the size of embedding is not 50
     vectors_dc={}
     for x in vectors:
-        vectors_dc[x['Word'].decode('utf-8','ignore')]=[float(x[each]) for each in ['EV{}'.format(i) for i in range(1,51)]]
+        vectors_dc[x['Word'].decode('utf-8','ignore')]=[float(x[each]) for each in ['EV{}'.format(i) for i in range(1,51)]] #51 is embedding length + 1, change accoridngly if the size of embedding is not 50
     return vectors_dc
 
 def get_sentence_embedding(text_data, vectors_dc):
@@ -193,7 +192,7 @@ valid_x=np.array(valid_x).astype('float32')
 train_y=np.array(train_y)
 valid_y=np.array(valid_y)
 
-print ('Step 4: Gradient Boosting Modele using sklearn')
+print ('Step 4: Gradient Boosting Module using sklearn')
 n_splits=3
 cv_score,best_model = cv_estimate(n_splits,train_x, train_y,20)
 

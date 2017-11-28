@@ -35,7 +35,7 @@ def run(input_df):
     line=input_df.iloc[0]['input_text_string']
     #test_x=reader.get_sentence_embedding(['<BOS> '+line+' <EOS>'])
     test_x=reader.get_sentence_embedding([''+line+''])
-    predictions = trainedModel.predict(test_x[0].flatten().reshape(1,150))
+    predictions = trainedModel.predict(test_x[0].flatten().reshape(1,150))#150 is embedding size * 3, change accordingly if you use different vector size
     y_pred = np.argmax(predictions, axis=1)
     y_pred_pos = predictions[:,1][0]
     print(y_pred_pos)	
