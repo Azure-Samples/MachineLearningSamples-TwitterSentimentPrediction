@@ -33,3 +33,7 @@ The aim of this real-world scenario is to highlight how to use Azure Machine Lea
 
 ![entity-extraction](../deliverable_docs/images/NER_structure.PNG)
 
+
+We would love to hear your feedback on how TDSP can be further enhanced for your evolving needs in this space – you can send us your feedback and comments via the GitHub [issues page](https://github.com/Azure/Microsoft-TDSP/issues) for TDSP or in the comments section below.
+
+Wei, Xibin, Brad and Debraj
