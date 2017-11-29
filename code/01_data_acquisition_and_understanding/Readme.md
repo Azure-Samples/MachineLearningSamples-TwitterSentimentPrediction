@@ -1,4 +1,4 @@
-/code/01_data_acquisition_and_understanding
+# /code/01_data_acquisition_and_understanding
 
 The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets.
 
