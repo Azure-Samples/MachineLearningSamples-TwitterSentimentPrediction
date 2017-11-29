@@ -1,0 +1,1 @@
+The raw data is downloaded from http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip. The training data has two parts: the tweet content which is a piece of text and a sentiment score 0 or 4, 0 means negative and 4 means positive. Total training size is around 1.28 millow rows. The testing data has 320k rows.
