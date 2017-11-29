@@ -15,7 +15,7 @@ The public GitHub repository for this example contains all the code samples:
 ## Link to the end-to-end walkthrough in GitHub
 
 Ths public GitHub repository for this tutorial containing step by step instructions:
-[https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/code/README.md](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/code/README.md)
+[https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md)
 
 ## Summary
 
