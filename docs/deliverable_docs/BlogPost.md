@@ -6,7 +6,7 @@ The primary purpose of this tutorial is to show how to instantiate and execute a
 
 In this walkthrough, we demonstrate the usage of Word Embedding algorithms like Word2Vec algorithm and Sentiment Specfic Word Embedding (SSWE) Algorithm to predict Twitter sentiment in Azure Machine Learning Workbench. The trained model is deployed to a web service using Azure Container Service(ACS). We are following Team Data Science Process to execute this project.
 
-This walkthrough is executed using TDSP templates which consist the following parts: 
+This walkthrough is executed using TDSP templates which consist of the following parts: 
 
 - [Data acquisition and understanding](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
 
@@ -15,18 +15,18 @@ This walkthrough is executed using TDSP templates which consist the following pa
     - Model Creation
     - Model Evaluation
 
-<table class="image" align="center">
-<caption align="bottom">Skip-gram model</caption>
-<tr><td><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05000515/Capture2-276x300.png" alt="Skip-gram model"/></td></tr>
-</table>
+    <table class="image" align="center">
+    <caption align="bottom">Skip-gram model</caption>
+    <tr><td><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05000515/Capture2-276x300.png" alt="Skip-gram model"/></td></tr>
+    </table>
 
-SSWE inspired neural network model that we use in this tutorial is shown in the following figure
-<table class="image" align="center">
-<caption align="bottom">Convolutional model to generate sentiment specific word embedding</caption>
-<tr><td><img src="../deliverable_docs/images/embedding_model2.PNG" alt="Skip-gram model"/></td></tr>
-</table>
+    SSWE inspired neural network model that we use in this tutorial is shown in the following figure
+    <table class="image" align="center">
+    <caption align="bottom">Convolutional model to generate sentiment specific word embedding</caption>
+    <tr><td><img src="../deliverable_docs/images/embedding_model2.PNG" alt="Skip-gram model"/></td></tr>
+    </table>
 
-![Compare_model](../deliverable_docs/images/model_comparison.PNG)
+     ![Compare_model](../deliverable_docs/images/model_comparison.PNG)
 
 - [Deployment](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 
