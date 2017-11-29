@@ -210,7 +210,7 @@ valid_y=np.array(valid_y)
 
 print ('Step 4: Gradient Boosting Module using sklearn')
 n_splits=3
-cv_score,best_model = cv_estimate(n_splits,train_x, train_y,20)
+cv_score,best_model = cv_estimate(n_splits,train_x, train_y, num_estimators)
 
 run_logger.log("Num Iters vs. CV Score", cv_score)
 

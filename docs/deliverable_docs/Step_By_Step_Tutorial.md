@@ -160,6 +160,27 @@ We apply the two types of features: Word2Vec and SSWE into two models: GBM model
 ![SSWE_logit](../deliverable_docs/images/09_ModelCreation_SSWE_Keras_training.PNG)
 ![SSWE_logit](../deliverable_docs/images/10_ModelCreation_SSWE_Keras_training_done.PNG)
 
+**Run history tracking**
+
+When you run scripts in Azure Machine Learning Work Bench, one useful feature is run history tracking which helps you monitor your experiment history runs and log the performances. 
+
+For example, when we train the Word2Vec in GBM model, you can add a logger in your code to enable history tracking. Here we want to look at the relationship between number of estimators (how many iterations GBM runs) vesus the cross-validation score, we can add those scripts into the code. 
+
+ ![add-logger](../deliverable_docs/images/add-logger.PNG)
+
+You can then in the **Arguments** window, type in the number of iterations you want GBM model to run, and click the **Run** button.
+
+ ![specify-par](../deliverable_docs/images/specify_parameters.PNG)
+
+Then you can click the **history** icon on the left side the panel, you can check the status of all the history runs of your code.
+
+ ![run-history](../deliverable_docs/images/run-history.PNG)
+
+Click each individual run, you can see the performance (CV score) is plotted against each of the iterations, here we have 25 iterations.
+
+ ![run-history-perf](../deliverable_docs/images/run-history-performance.PNG)
+
+For more details about run history tracking, please refer to this [tutorial](https://docs.microsoft.com/en-us/azure/machine-learning/preview/how-to-use-run-history-model-metrics).
 
 #### Model Evaluation
 We use the 4 trained in previous step in tetsting data to get evaluate the model's performance, GBM model with SSWE features is the best one in terms of AUC value.
