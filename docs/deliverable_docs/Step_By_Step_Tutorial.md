@@ -9,7 +9,7 @@ In this tutorial we are going to demonstrate the usage of Word Embedding algorit
 
 We use the TDSP project structure and documentation templates to execute this tutorial. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
-![tdsp-lifecycle](../deliverable_images/tdsp-lifecycle.PNG)
+![tdsp-lifecycle](../deliverable_docs/images/tdsp-lifecycle.PNG)
 
 ![instantiate-tdsp](../deliverable_docs/images/tdsp-instantiation.PNG) 
 
