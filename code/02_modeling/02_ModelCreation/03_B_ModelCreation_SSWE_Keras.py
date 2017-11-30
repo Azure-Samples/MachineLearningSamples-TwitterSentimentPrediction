@@ -36,13 +36,17 @@ from sklearn.model_selection import KFold
 from sklearn.externals import joblib
 
 # Path of the training file'
-data_dir = r'C:\Users\ds1\Documents\AzureML\data'
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+data_dir = os.path.join(base_path, data_folder)
 
 # Path of the word vectors
-vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_SSWE_Basic_Keras_w_CNTK.tsv' 
+embedding_folder = os.path.join(base_path, 'vectors')
+vectors_file = os.path.join(embedding_folder, 'embeddings_SSWE_Basic_Keras_w_CNTK.tsv')
 
 model_identifier='evaluation_SSWE_logistic'
-models_dir='model'
+models_dir = os.path.join(base_path, 'model')
+
 if not os.path.exists(models_dir):
     os.makedirs(models_dir)
 

@@ -37,6 +37,7 @@ from sklearn.externals import joblib
 
 from azureml.logging import get_azureml_logger
 from azureml.dataprep.package import run
+
 # initialize the logger
 run_logger = get_azureml_logger() 
 
@@ -49,14 +50,17 @@ if len(sys.argv) > 1:
         num_estimators = 1
 run_logger.log("Num Estimators", num_estimators)
 
-
 # Path of the training file'
-data_dir = r'C:\Users\ds1\Documents\AzureML\data'  
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+data_dir = os.path.join(base_path, data_folder)
 
 # Path of the word vectors
-vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_Word2Vec_Basic.tsv'
+embedding_folder = os.path.join(base_path, 'vectors')
+vectors_file = os.path.join(embedding_folder, 'embeddings_Word2Vec_Basic.tsv')
 model_identifier = 'evaluation_word2vec_gbm'
-models_dir = 'model'
+
+models_dir = os.path.join(base_path, 'model')
 
 if not os.path.exists(models_dir):
     os.makedirs(models_dir)

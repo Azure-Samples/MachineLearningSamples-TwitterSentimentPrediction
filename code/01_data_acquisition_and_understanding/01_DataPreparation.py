@@ -5,8 +5,9 @@ from zipfile import ZipFile
 import urllib.request
 from tempfile import mktemp
 
-base_path=r'C:\Users\ds1\Documents\AzureML'
-base_folder='data'
+# Data needs to be saved outside of project folder
+base_path = os.environ['HOMEPATH']
+data_folder='data'
 
 # URL to download the sentiment140 dataset
 data_url='http://cs.stanford.edu/people/alecmgo/trainingandtestdata.zip'
@@ -71,7 +72,7 @@ def extract_tweets_and_labels(filename ):
 
 # Download and processing the data
 
-base_dir_path=base_path+'\\'+base_folder
+base_dir_path=base_path+'\\'+data_folder
 change_base_dir(base_dir_path)
 download_data(data_url)
 extract_tweets_and_labels('training.1600000.processed.noemoticon.csv')

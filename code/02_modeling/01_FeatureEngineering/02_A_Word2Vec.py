@@ -16,9 +16,12 @@ import io
 from nltk.tokenize import TweetTokenizer
 import num2words
 
-training_filename = r'C:\Users\ds1\Documents\AzureML\data\training_text.csv'
+
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+training_filename = os.path.join(base_path, data_folder, 'training_text.csv')
 model_identifier = 'Word2Vec_Basic'
-embedding_folder = 'vectors'
+embedding_folder = os.path.join(base_path, 'vectors')
 
 if not os.path.exists(embedding_folder):
     os.makedirs(embedding_folder)

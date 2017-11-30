@@ -49,8 +49,11 @@ import num2words
 random_seed=1
 np.random.seed(random_seed)
 
-data_dir = r'C:\Users\ds1\Documents\AzureML\data'
-embedding_folder = 'vectors'
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+data_dir = os.path.join(base_path, data_folder)
+
+embedding_folder = os.path.join(base_path, 'vectors')
 model_identifier = 'SSWE_Basic_Keras_w_CNTK'
 
 if not os.path.exists(embedding_folder):

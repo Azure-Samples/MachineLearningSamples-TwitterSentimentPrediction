@@ -36,7 +36,9 @@ from sklearn.externals import joblib
 import matplotlib.pyplot as plt
 
 # Path of the test data directory'
-data_dir = r'C:\Users\ds1\Documents\AzureML\data' 
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+data_dir = os.path.join(base_path, data_folder)
 
 # Data preprocessing
 pos_emoticons=["(^.^)","(^-^)","(^_^)","(^_~)","(^3^)","(^o^)","(~_^)","*)",":)",":*",":-*",":]",":^)",":}",
@@ -141,12 +143,14 @@ print ('Step1: Loading Testing data')
 test_texts = read_data(data_dir+'/testing_text.csv')
 test_labels = read_labels(data_dir+'/testing_label.csv')
 
+embedding_folder = os.path.join(base_path, 'vectors')
+
 print ('Step2: Loading word2vec embedding')
-vectors_file = r'../02_modeling/vectors/embeddings_Word2Vec_Basic.tsv'
+vectors_file = vectors_file = os.path.join(embedding_folder, 'embeddings_Word2Vec_Basic.tsv')
 vectors_dc_word2vec = load_word_embedding(vectors_file)
 
 print ('Step2: Loading SSWE embedding')
-vectors_file = r'../02_modeling/vectors/embeddings_SSWE_Basic_Keras_w_CNTK.tsv'
+vectors_file = os.path.join(embedding_folder, 'embeddings_SSWE_Basic_Keras_w_CNTK.tsv')
 vectors_dc_sswe = load_word_embedding(vectors_file)
 
 print ('Step3: Converting word vectors to sentence vectors for w2v')
@@ -155,10 +159,12 @@ w2v_sentence_vectors = get_sentence_embedding(test_texts, vectors_dc_word2vec)
 print ('Step3: Converting word vectors to sentence vectors for sswe')
 sswe_sentence_vectors = get_sentence_embedding(test_texts, vectors_dc_sswe)
 
-w2v_log = r'../02_modeling/model/evaluation_word2vec_logistic'
-w2v_gbm = r'../02_modeling/model/evaluation_word2vec_gbm'
-sswe_log = r'../02_modeling/model/evaluation_SSWE_logistic'
-sswe_gbm = r'../02_modeling/model/evaluation_SSWE_gbm'
+model_folder = model_file = models_dir = os.path.join(base_path, 'model')
+
+w2v_log = os.path.join(model_folder, 'evaluation_word2vec_logistic')
+w2v_gbm = os.path.join(model_folder, 'evaluation_word2vec_gbm')
+sswe_log = os.path.join(model_folder, 'evaluation_SSWE_logistic')
+sswe_gbm = os.path.join(model_folder, 'evaluation_SSWE_gbm')
 
 model2vectors = {w2v_log:w2v_sentence_vectors,w2v_gbm:w2v_sentence_vectors,
                sswe_log:sswe_sentence_vectors,sswe_gbm:sswe_sentence_vectors}

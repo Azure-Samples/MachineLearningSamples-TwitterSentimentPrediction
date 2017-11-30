@@ -36,9 +36,14 @@ from sklearn.externals import joblib
 import matplotlib.pyplot as plt
 
 # Path of the test data directory
-data_dir = r'C:\Users\ds1\Documents\AzureML\data' 
-vectors_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\vectors\embeddings_SSWE_Basic_Keras_w_CNTK.tsv'
-model_file = r'C:\Users\ds1\Documents\AzureML\Twitter_Sentiment_NLP_1012\code\02_modeling\model\evaluation_SSWE_logistic'
+base_path = os.environ['HOMEPATH']
+data_folder='data'
+data_dir = os.path.join(base_path, data_folder)
+
+embedding_folder = os.path.join(base_path, 'vectors')
+vectors_file = os.path.join(embedding_folder, 'embeddings_SSWE_Basic_Keras_w_CNTK.tsv')
+
+model_file = models_dir = os.path.join(base_path, 'model', 'evaluation_SSWE_logistic')
 
 # Data preprocessing
 
