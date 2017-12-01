@@ -21,7 +21,6 @@ The primary purpose of this sample is to show how to instantiate and execute a m
 The project highlights several features of Azure Machine Learning, such TDSP structure instantiation and use, execution of code in Azure Machine Learning Work Bench, and easy operationalization in Azure Container Services using Docker and Kubernetes.
 
 ## Team Data Science Process
-
 We use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
 ![tdsp-lifecycle](../deliverable_docs/images/tdsp-lifecycle.PNG)
@@ -32,9 +31,7 @@ We use the TDSP project structure and documentation templates to execute this sa
 The task is to predict each twitter's sentiment binary polarity using word embeddings features extracted from twitter text. For detailed descripton, please refer to this [repository](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction).
 
 ### [Data acquisition and understanding](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/01_data_acquisition_and_understanding)
-The first step in this sample is to download the sentiment140 dataset and divide it into train and test datasets.
-
-Sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, positive=4) as well, with neutral tweets removed. The resulting training data has 1.3 millow rows and testing data has 320k rows.
+The first step in this sample is to download the sentiment140 dataset and divide it into train and test datasets. Sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, positive=4) as well, with neutral tweets removed. The resulting training data has 1.3 millow rows and testing data has 320k rows.
 
 ### [Modeling](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/02_modeling)
 This part of the sample is further divided into three subparts: 
@@ -89,12 +86,10 @@ We use the 4 trained in previous step in tetsting data to get evaluate the model
 
 ![Compare_model](../deliverable_docs/images/model_comparison.PNG)
 
-
 ### [Deployment](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/tree/master/code/03_deployment)
 This part we will deploy pre-trained sentiment prediction model (SSWE embedding + GBM model) to a web service on a cluster in the Azure Container Service (ACS). The operationalization environment provisions Docker and Kubernetes in the cluster to manage the web-service deployment. You can find further information on the operationalization process [here](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy).
 
 ![kubenetes_dashboard](../deliverable_docs/images/25_kubernetes_dashboard.PNG)
-
 
 ## Conclusion
 We went through the details on how to train a word embedding model using Word2Vec and SSWE algorithms and then use the extracted embeddings as features to train several models to predict the sentiment score of Twitter text data. Sentiment Specific Wording Embeddings(SSWE) feature with Gradient Boosted Tree model gives the best performance. In the end this model is deployed as a real time web service in Azure Container Services with the help of Azure Machine Learning Work Bench.

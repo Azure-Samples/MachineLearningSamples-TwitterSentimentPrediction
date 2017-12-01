@@ -3,7 +3,7 @@
 ![Twitter-sentiment-logo](../deliverable_docs/images/twitter-sentiment-icon.PNG)
 
 ## Introduction
-In this sample we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench. We will follow [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) to execute this project.
+In this sample we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in [Azure Machine Learning Workbench]((https://docs.microsoft.com/en-us/azure/machine-learning/preview/). We will follow [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) to execute this project.
 
 ## Team Data Science Process
 
@@ -58,15 +58,26 @@ Copy the cloned files (except .git file) to your project folder, overwrite the e
 
    ![copy-files](../deliverable_docs/images/copy_files_to_project.PNG) 
 
-There are two ways to run the script: you can run each .py file within the UI of Azure ML WorkBench by clicking the run button, or you can run the .py file directly in Azure Machine Learning Command Line (CLI).
+There are **three ways** to run the script: 
+- You can run .py file within the UI of Azure ML WorkBench by clicking the **run** button.
 
-* To run the .py script in CLI, open the Command line window from **File** in the upper left corner of Azure ML Work Bench Work Bench window, and then in the command line use **python path-to-python code** to execute the code.
+    To run the .py file in UI, open the file, choose local execution, and then click **Run**, you can put in paramters in the box if you set up the parameter tuning using run history and performance tracking (see _Run history tracking_ section below).
+
+    ![run-py-ui](../deliverable_docs/images/run_py_in_UI.PNG)
+
+- You can run the .py file directly in Azure Machine Learning Command Line (CLI).
+
+    To run the .py script in CLI, open the Command line window from **File** in the upper left corner of Azure ML Work Bench Work Bench window, and then in the command line use **python path-to-python code** to execute the code.
 
     ![open-cli](../deliverable_docs/images/open-cli.PNG)
 
     ![execute-cli](../deliverable_docs/images/execute-py-cli.PNG)
 
-The screenshots below demonstrate running the sample in CLI, running it in Jupyter Notebook is similar.
+- You can run the Jupyter Notebooks in Jupyter Notebook server within Azure Machine Learning Work Bench.
+
+    To run Jupyter Notebooks, open the .ipynb file and click **Start Notebook Server** and run each cell as usual.
+
+    ![run-jupyter](../deliverable_docs/images/run_jupyter.PNG)
 
 ### Data acquisition and understanding
 The first step in this sample is to download the sentiment140 dataset and divide it into train and test datasets. This part of the sample performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
