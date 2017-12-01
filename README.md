@@ -14,17 +14,17 @@ The public GitHub repository for this example contains all the code samples:
 
 ## Link to the end-to-end walkthrough in GitHub
 
-Ths public GitHub repository for this tutorial containing step by step instructions:
+Ths public GitHub repository for this sample containing step by step instructions:
 [https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md](https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction/blob/master/docs/deliverable_docs/Step_By_Step_Tutorial.md)
 
 ## Summary
 
-Sentiment analysis is a widely research topic in the Natural Language Processing domain. It has the applications in consumer reviews mining, public opinion mining and advertisement on online forums. Many of the sentiment analysis approaches use handcrafted features but the popularity of unsupervised and semi supervised approached to generate word embeddings have made these embedding techniques an important way to generate features. In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** and **SSWE** to predict sentiment polarity. This end-to-end process is implemented in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-what-is-azure-ml).
+Sentiment analysis is a widely research topic in the Natural Language Processing domain. It has the applications in consumer reviews mining, public opinion mining and advertisement on online forums. Many of the sentiment analysis approaches use handcrafted features but the popularity of unsupervised and semi supervised approached to generate word embeddings have made these embedding techniques an important way to generate features. In this sample we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** and **SSWE** to predict sentiment polarity. This end-to-end process is implemented in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/overview-what-is-azure-ml).
 
 
 ## Description
 
-The aim of this tutorial is to highlight how to use Azure Machine Learning Workbench to predict the sentiment of Twitter text data. Here are the key points addressed:
+The aim of this sample is to highlight how to use Azure Machine Learning Workbench to predict the sentiment of Twitter text data. Here are the key points addressed:
 
 * How to train a Word2Vec embeddings model
 * How to train a SSWE embeddings model
@@ -33,7 +33,7 @@ The aim of this tutorial is to highlight how to use Azure Machine Learning Workb
 * Demonstrate that GBM model using SSWE embeddings achieves the best model in terms of AUC
 * Demonstrate how to train and operationalize a machine learning model using Azure Machine Learning Workbench.
 
-The following capabilities within Azure Machine Learning Workbench are covered in this tutorial:
+The following capabilities within Azure Machine Learning Workbench are covered in this sample:
 
 * Instantiation of [Team Data Science Process (TDSP) structure and templates](how-to-use-tdsp-in-azure-ml.md).
 * Automated management of your project dependencies including the download and the installation. 
@@ -50,7 +50,7 @@ For code samples, click the View Project icon on the right and visit the project
 
 * An Azure [subscription](https://azure.microsoft.com/en-us/free/)
 * Azure Machine Learning Workbench with a workspace created. See [installation guide](quick-start-installation.md). 
-* You can run through the tutorial locally on a [Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
+* You can run through the sample locally on a [Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
 * To provision DSVM for Windows 2016, follow the instructions [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using [NC6 Standard (56 GB, K80 NVIDIA Tesla)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
 
 

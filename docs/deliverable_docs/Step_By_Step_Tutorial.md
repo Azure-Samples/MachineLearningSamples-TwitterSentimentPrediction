@@ -3,18 +3,18 @@
 ![Twitter-sentiment-logo](../deliverable_docs/images/twitter-sentiment-icon.PNG)
 
 ## Introduction
-In this tutorial we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench. We will follow [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) to execute this project.
+In this sample we are going to demonstrate the usage of Word Embedding algorithms like **Word2Vec** algorithm and **Sentiment Specfic Word Embedding (SSWE) Algorithm** to predict Twitter sentiment in Azure Machine Learning Workbench. We will follow [Team Data Science Process](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) to execute this project.
 
 ## Team Data Science Process
 
-We use the TDSP project structure and documentation templates to execute this tutorial. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
+We use the TDSP project structure and documentation templates to execute this sample. It follows the [TDSP lifecycle]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)). The project is created based on the instructions provided [here](https://github.com/amlsamples/tdsp/blob/master/docs/how-to-use-tdsp-in-azure-ml.md).
 
 ![tdsp-lifecycle](../deliverable_docs/images/tdsp-lifecycle.PNG)
 
 ![instantiate-tdsp](../deliverable_docs/images/tdsp-instantiation.PNG) 
 
 ## Content
-This tutorial consists of the following three main parts with each part consisting of one or more python scripts.
+This sample consists of the following three main parts with each part consisting of one or more python scripts.
 1. [Data acquisition and understanding](#data-acquisition-and-understanding)
 2. [Modeling](#modeling)
     * [Feature Engineering](#feature-engineering)
@@ -30,7 +30,7 @@ Before diving into the project, some pre-requisites have to be met
 - An Azure [subscription](https://azure.microsoft.com/en-us/free/)
 - Azure Machine Learning Workbench with a workspace created. See [installation guide](quick-start-installation.md). 
 - [Install Azure ML Work Bench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
-- You can run through the tutorial locally on a [Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
+- You can run through the sample locally on a [Data Science Virtual Machine (DSVM)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
 - To provision DSVM for Windows 2016, follow the instructions [here](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using [NC6 Standard (56 GB, K80 NVIDIA Tesla)](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-linux-dsvm-intro).
 
 - Install some required packages
@@ -43,7 +43,7 @@ Before diving into the project, some pre-requisites have to be met
     * [h5py](http://www.h5py.org/)
 
 ### Project Creation 
-First we need to clone this tutorial to your local machine by running the following command: 
+First we need to clone this sample to your local machine by running the following command: 
 
     git clone https://github.com/Azure/MachineLearningSamples-TwitterSentimentPrediction.git
 
@@ -66,10 +66,10 @@ There are two ways to run the script: you can run each .py file within the UI of
 
     ![execute-cli](../deliverable_docs/images/execute-py-cli.PNG)
 
-The screenshots below demonstrate running the tutorial in CLI, running it in Jupyter Notebook is similar.
+The screenshots below demonstrate running the sample in CLI, running it in Jupyter Notebook is similar.
 
 ### Data acquisition and understanding
-The first step in this tutorial is to download the sentiment140 dataset and divide it into train and test datasets. This part of the tutorial performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
+The first step in this sample is to download the sentiment140 dataset and divide it into train and test datasets. This part of the sample performs the downloading of the data and the splitting of data into train and test datasets. Execute 01_DownloadData.py in Azure ML Workbench Command Line to prepare the training and testing data. Remember to change the path of where the data set will be located. 
 
 Sentiment140 dataset contains the actual content of the tweet (with emoticons removed) along with the polarity of each of the tweet (negative=0, neutral =2, positive=4) as well. Sentiment140 dataset has been labelled using the concept of distant supervision as explained in the paper **[Twitter Sentiment Classification Using Distant Supervision](http://cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf)**
 
@@ -82,7 +82,7 @@ After this step is finished, several CSV files are generated in your specified d
 ![Data Generated](../deliverable_docs/images/02_DataSaved.PNG)
 
 ### Modeling
-This part of the tutorial is further divided into three subparts: 
+This part of the sample is further divided into three subparts: 
 - **Feature Engineering** corresponds to the generation of features using different word embedding algorithms. 
 - **Model Creation** deals with the training of different models like _logistic regression_ and _gradient boosting_ to predict sentiment of the input text. 
 - **Model Evaluation** applies the trained model over the testing data.
@@ -100,7 +100,7 @@ Skip-gram is a shallow neural network taking the target word encoded as a one ho
 <tr><td><img src="https://s3-ap-south-1.amazonaws.com/av-blog-media/wp-content/uploads/2017/06/05000515/Capture2-276x300.png" alt="Skip-gram model"/></td></tr>
 </table>
 
-The details of the word2vec algorithm and skip-gram model are beyond the scope of this tutorial and the interested readers are requested to go through the following links for more details. The code 02_A_Word2Vec.py referenced [tensorflow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
+The details of the word2vec algorithm and skip-gram model are beyond the scope of this sample and the interested readers are requested to go through the following links for more details. The code 02_A_Word2Vec.py referenced [tensorflow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py)
 
 * [Vector Representation of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
@@ -109,9 +109,9 @@ The details of the word2vec algorithm and skip-gram model are beyond the scope o
 ##### SSWE
 **Sentiment Specfic Word Embedding (SSWE) Algorithm** proposed in [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146)  tries to overcome the weakness of Word2vec algorithm that the words with similar contexts and opposite polarity can have similar word vectors. This means that Word2vec may not perform very accurately for the tasks like sentiment analysis. SSWE algorithm tries to handle this weakness by incorporating both the sentence polarity and the word's context in to its loss function.
 
-We are using a variant of SSWE in this tutorial. SSWE uses both the original ngram and corrupted ngram as input and it uses a ranking style hinge loss function for both the syntactic loss and the semantic loss. Ultimate loss function is the weighted combination of both the syntactic loss and semantic loss. For the purpose of simplicity, we are using only the semantic cross entropy as the loss function. As we are going to see later on, even with this simpler loss function the performance of the SSWE embedding is better than the Word2Vec embedding.
+We are using a variant of SSWE in this sample. SSWE uses both the original ngram and corrupted ngram as input and it uses a ranking style hinge loss function for both the syntactic loss and the semantic loss. Ultimate loss function is the weighted combination of both the syntactic loss and semantic loss. For the purpose of simplicity, we are using only the semantic cross entropy as the loss function. As we are going to see later on, even with this simpler loss function the performance of the SSWE embedding is better than the Word2Vec embedding.
 
-SSWE inspired neural network model that we use in this tutorial is shown in the following figure
+SSWE inspired neural network model that we use in this sample is shown in the following figure
 <table class="image" align="center">
 <caption align="bottom">Convolutional model to generate sentiment specific word embedding</caption>
 <tr><td><img src="../deliverable_docs/images/embedding_model2.PNG" alt="Skip-gram model"/></td></tr>
@@ -141,7 +141,7 @@ For more information about Word2Vec and SSWE, you can refer to those papers: [Mi
 #### Model Creation
 Once the word vectors have been generated using either of the SSWE or Word2vec algorithm, the next step is to train the classification models to predict actual sentiment polarity. However, before the actual training of the models the word level vectors have to be converted into sentence level vectors. The sentence level vectors are generated in two steps. In the first step, vectors of all the constituent words of a sentence are stacked up to get a matrix of size __maxsequencelength*embeddingdimension__. In the next step, min max and average operations are performed on each of the column of this matrix, hence resulting into a vector of size __3__ * __embeddingdimension__ for each of the sentence. 
 
-This vector representation of sentences is given as input to the training classifiers. For this purpose of this tutorial, we demonstrate that how these sentence vectors can be used as input by simple linear models like Logistic Regression (using a single layer neural network in Keras) or the gradient boosting model based on sklearn. We have used 3-fold cross-validation in each of the notebook to select the best model. More details can be found in the individual notebooks in the [directory](./Code/02_Modeling/02_ModelCreation).
+This vector representation of sentences is given as input to the training classifiers. For this purpose of this sample, we demonstrate that how these sentence vectors can be used as input by simple linear models like Logistic Regression (using a single layer neural network in Keras) or the gradient boosting model based on sklearn. We have used 3-fold cross-validation in each of the notebook to select the best model. More details can be found in the individual notebooks in the [directory](./Code/02_Modeling/02_ModelCreation).
 
 We apply the two types of features: Word2Vec and SSWE into two models: GBM model and Logistic regression model. Therefore we have four models to compare.
 
