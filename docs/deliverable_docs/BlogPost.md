@@ -2,7 +2,7 @@
 
 The primary purpose of this sample is to show how to instantiate and execute a complex machine learning project using the [Team Data Science Process (TDSP)](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview) structure and templates in [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/preview/). 
 
-In this walkthrough, we demonstrate the usage of Word Embedding algorithms like Word2Vec algorithm and Sentiment Specfic Word Embedding (SSWE) Algorithm to predict Twitter sentiment polarity in Azure Machine Learning Workbench. The trained model is deployed to a web service using Azure Container Service(ACS). We are following Team Data Science Process to execute this project.
+In this walkthrough, we demonstrate the usage of Word Embedding algorithms like Word2Vec algorithm and Sentiment Specfic Word Embedding (SSWE) Algorithm to predict Twitter sentiment polarity in Azure Machine Learning Workbench. The trained model is deployed to a web service using Azure Container Service(ACS). We are following Team Data Science Process to execute this project. The data used in this project is _Sentiment140_ dataset, which contains the actual content of the tweet (with emoticons removed) along with the polarity(positive and negative) of each of the tweet (neutral tweets are removed for this project) as well. Sentiment140 dataset has been labelled using the concept of distant supervision as explained in the paper **[Twitter Sentiment Classification Using Distant Supervision](http://cs.stanford.edu/people/alecmgo/papers/TwitterDistantSupervision09.pdf)**
 
 This project is executed using [TDSP templates]((https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md)) which consist of the following parts: 
 
@@ -31,10 +31,13 @@ The Word2Vec algorithm is based on the the paper [Mikolov, Tomas, et al. Distrib
 Sentiment Specfic Word Embedding (SSWE) Algorithm proposed in [Tang, Duyu, et al. "Learning Sentiment-Specific Word Embedding for Twitter Sentiment Classification." ACL (1). 2014.](http://www.aclweb.org/anthology/P14-1146) tries to overcome the weakness of Word2vec algorithm that the words with similar contexts and opposite polarity can have similar word vectors. This means that Word2vec may not perform very accurately for the tasks like sentiment analysis. SSWE algorithm tries to handle this weakness by incorporating both the sentence polarity and the word's context in to its loss function.
 
 We are using a variant of SSWE in this sample. SSWE uses both the original ngram and corrupted ngram as input and it uses a ranking style hinge loss function for both the syntactic loss and the semantic loss. Ultimate loss function is the weighted combination of both the syntactic loss and semantic loss. For the purpose of simplicity, we are using only the semantic cross entropy as the loss function. As we are going to see later on, even with this simpler loss function the performance of the SSWE embedding is better than the Word2Vec embedding. SSWE inspired neural network model that we use in this sample is shown in the following figure
+
 <table class="image" align="center">
 <caption align="bottom">Convolutional model to generate sentiment specific word embedding</caption>
 <tr><td><img src="../deliverable_docs/images/embedding_model2.PNG" alt="Skip-gram model"/></td></tr>
 </table>
+
+We compared Logistic Regression and Gradient Boosted Decision Tree models using Word2Vec and SSWE as features, results show that Gradient Boosted Tree Model with SSWE embedding performs the best. Then this is model is deployed to a web service using Azure Container Service.
 
 <table class="image" align="center">
 <caption align="bottom">Model Comparison</caption>
