@@ -5,7 +5,6 @@
 
 Documentation that walks you through this example is available at: 
 
-https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment
 [https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment)
 
 
