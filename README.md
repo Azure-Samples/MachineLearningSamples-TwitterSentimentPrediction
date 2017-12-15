@@ -3,8 +3,9 @@
 
 ## Link to the Microsoft DOCS site
 
-The detailed documentation for this example includes the step-by-step walk-through:
-[https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-twitter-sentiment](https://docs.microsoft.com/azure/machine-learning/preview/scenario-tdsp-twitter-sentiment)
+Documentation that walks you through this example is available at: 
+https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment
+[https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/predict-twitter-sentiment)
 
 
 ## Link to the Gallery GitHub repository
