@@ -1,5 +1,6 @@
 # Use word embeddings to predict Twitter sentiment following Team Data Science Process
 
+> **NOTE** This content is no longer maintained. Visit the [Azure Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks) project for sample Jupyter notebooks for ML and deep learning with Azure Machine Learning.
 
 ## Link to the Microsoft DOCS site
 
